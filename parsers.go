@@ -1,4 +1,4 @@
-package AutoBorder
+package main
 
 func parseCommittee(com string) {
 	switch com {

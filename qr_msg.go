@@ -1,4 +1,4 @@
-package AutoBorder
+package main
 
 import "fmt"
 

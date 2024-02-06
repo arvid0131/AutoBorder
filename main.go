@@ -1,4 +1,4 @@
-package AutoBorder
+package main
 
 import (
 	"fmt"
@@ -22,10 +22,8 @@ var qrImg canvas.Image
 var saveFile dialog.FileDialog
 
 var a = app.New()
-var w = a.NewWindow("Auto-Border")
+var w = a.NewWindow("AutoBorder")
 var c = w.Canvas()
-var saveFileWindow = a.NewWindow("Save file")
-var saveFileCanvas = saveFileWindow.Canvas()
 
 func main() {
 
@@ -36,9 +34,10 @@ func main() {
 
 	c.SetContent(widget.NewLabel("Hello World!"))
 	w.Resize(fyne.NewSize(400, 500))
-	saveFileWindow.Resize(fyne.NewSize(1000, 700))
 
 	canvas.Refresh(&qrImg)
+
+	qrImg.Resize(fyne.NewSize(306, 306))
 
 	content := container.NewCenter(
 		container.NewGridWithRows(
@@ -48,6 +47,7 @@ func main() {
 				&amountEntry,
 				container.NewGridWithColumns(2, &comitteeSelector, &messageEntry),
 				&generateButton)))
+
 	c.SetContent(content)
 
 	w.ShowAndRun()
